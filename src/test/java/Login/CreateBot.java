@@ -97,15 +97,16 @@ public class CreateBot {
 		System.out.println("Configure chatbot Successful");
 		
 		//CUSTOMIZE TAB
-		Thread.sleep(2000);
-		driver.findElement(By.cssSelector("[data-cy='question-tab']")).click();
-		System.out.println("Switched to Question tab");
-		Thread.sleep(2000);
-		driver.findElement(By.cssSelector("[data-cy='number-of-fars-input']")).clear();
-		Thread.sleep(2000);
-		driver.findElement(By.cssSelector("[data-cy='number-of-fars-input']")).sendKeys("2");
-		System.out.println("Enter how far user can input");
-		Thread.sleep(2000);
+				Thread.sleep(2000);
+				driver.findElement(By.cssSelector("[data-cy='theme-option-dark']")).click();
+				System.out.println("Switched to dark theme");
+				Thread.sleep(2000);
+				driver.findElement(By.cssSelector("[data-cy='tab-general']")).clear();
+				System.out.println("Switched to general tab");
+				Thread.sleep(2000);
+				driver.findElement(By.cssSelector("[data-cy='font-select']")).sendKeys("2");
+				System.out.println("Click font dropdown");
+				Thread.sleep(2000);
 
 		System.out.println("Apply and create button click");
 		Thread.sleep(3000);
