@@ -14,13 +14,15 @@ public class VisitorChatView {
 			//Launch the browser
 			//ChromeDriver driver = new ChromeDriver();
 			WebDriver driver = new ChromeDriver();
+			String mail = "gajabase@mailinator.com";
+			String pass = "Qwerty@123";
 			//Implicit wait
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 			//Enter the URL
-			driver.get("https://app.websitechat.in/login");
+			driver.get("https://websitechat-qa.netlify.app/login");
 			driver.manage().window().maximize();
-			driver.findElement(By.name("email")).sendKeys("visitorprod@mailinator.com");
-			driver.findElement(By.name("password")).sendKeys("Qwerty@123");
+			driver.findElement(By.name("email")).sendKeys(mail);
+			driver.findElement(By.name("password")).sendKeys(pass);
 			driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/form/button[1]")).click();
 			System.out.println("Login Successful");
 			
@@ -29,18 +31,8 @@ public class VisitorChatView {
 			driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[3]/a/div[2]")).click();
 			Thread.sleep(2000);
 			//Open chat
-			driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/main/div/div[2]/div/table/tbody/tr[2]/td[2]")).click();
-			//Thread.sleep(2000);
-			//driver.findElement(By.xpath("/html/body/div[7]/div/div[1]/div/svg")).click();
-			
-			
-			/*// Scroll chat page
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-			//Close side drawer
-			driver.findElement(By.xpath("/html/body/div[6]/div/div[1]/div/svg/defs/clipPath")).click();
-			Thread.sleep(2000);
-			*/
+			driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/main/div/div[2]/div/table/tbody")).click();
+			System.out.print("Chat opened successfully");
 
 	}
 

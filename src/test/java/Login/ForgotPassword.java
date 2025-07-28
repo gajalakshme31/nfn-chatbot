@@ -1,11 +1,10 @@
 package Login;
 
-import java.time.Duration;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ForgotPassword {
@@ -40,10 +39,12 @@ public class ForgotPassword {
 		Thread.sleep(5000);
 		//driver.findElement(By.className("ng-binding")).click();
 		//Click on the email
-		driver.findElement(By.xpath("//*[@id=\"inbox_pane\"]/div[3]/div/div[4]/div/div/table")).click();
+		driver.findElement(By.xpath("(//tr[@ng-repeat='email in emails'])[1]/td[3]")).click();
 		Thread.sleep(5000);
+		driver.switchTo().frame(0);
 		//Click on the verification link
-		driver.findElement(By.xpath("/html/body/table/tbody/tr/td/table[2]/tbody/tr/td/table/tbody/tr/td/a")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[contains(text(),'Your Email')]")).click();
 		/*WebElement verificationLink = driver.findElement(By.xpath("/html/body/a"));
         String linkUrl = verificationLink.getAttribute("href");
         System.out.println("Verification Link: " + linkUrl);
@@ -53,8 +54,25 @@ public class ForgotPassword {
 		
 		*/
 		
+		Thread.sleep(3000);
+		Set<String> ids = driver.getWindowHandles();
+		for (String string : ids) {
+			driver.switchTo().window(string);
+		}
+		Thread.sleep(3000);
+		String pass = "Qwerty@321";
+		driver.findElement(By.xpath("(//input[@type='password'])[1]")).sendKeys(pass);
+		driver.findElement(By.xpath("(//input[@type='password'])[2]")).sendKeys(pass);
+		Thread.sleep(3000);
+		driver.findElement(By.cssSelector("[data-cy='submit-password-button']")).sendKeys("NFN Labs");
+		
+		//Login with new password
+		driver.findElement(By.cssSelector("[data-cy='login-email-input']")).sendKeys("gaja1@mailinator.com");
+		driver.findElement(By.cssSelector("[data-cy='login-password-input']")).sendKeys(pass);
+		driver.findElement(By.cssSelector("[data-cy='login-submit-button']")).click();
+		System.out.println("Login Successful with new password");
 		}
 		
 	}
-
-
+//submit-password-button
+//a[contains(text(),'Your Email')]

@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class EditChatbot {
+public class Deactivate_bot {
 
 	public static void main(String[] args) throws InterruptedException {
 		//Launch the browser
@@ -14,11 +14,11 @@ public class EditChatbot {
 				WebDriver driver = new ChromeDriver();
 				//Implicit wait
 				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+				String mail = "gajabase@mailinator.com";
+				String pass = "Qwerty@123";
 				//Enter the URL
 				driver.get("https://websitechat-qa.netlify.app/login");
 				driver.manage().window().maximize();
-				String mail = "w@mailinator.com";
-				String pass = "Qwerty@123";
 				driver.findElement(By.name("email")).sendKeys(mail);
 				driver.findElement(By.name("password")).sendKeys(pass);
 				driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/form/button[1]")).click();
@@ -27,18 +27,12 @@ public class EditChatbot {
 				//Click three dots
 				driver.findElement(By.cssSelector("[data-cy='three-dots-vertical']")).click();
 				Thread.sleep(2000);
-				//Click edit knowledge option
-				driver.findElement(By.cssSelector("[data-cy='edit-knowledge']")).click();
+				//Click deactivate option
+				driver.findElement(By.cssSelector("[data-cy='deactivate-assistant']")).click();
 				Thread.sleep(2000);
-				//Switch to website tab
-				driver.findElement(By.cssSelector("[data-cy='side-select-menu-Website']")).click();
-				Thread.sleep(2000);
-				//Edit knowledge base
-				driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/main/div/div/div[1]/div[2]/div/div/div/div[4]/table/tbody/tr[6]/td[5]/div[1]/label/span")).click();									
-				Thread.sleep(2000);
-				driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[1]/button")).click();
-				Thread.sleep(2000);
-				
-			}
+				//Click deactivate confirmation button
+				driver.findElement(By.xpath("/html/body/div[8]/div/div/div[2]/button[2]")).click();
+
+	}
 
 }

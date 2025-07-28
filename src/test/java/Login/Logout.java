@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Logout {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		// Launch the browser
 				WebDriver driver = new ChromeDriver();
@@ -17,11 +17,16 @@ public class Logout {
 				// Enter the URL
 				driver.get("https://websitechat-qa.netlify.app/login");
 				driver.manage().window().maximize();
-				driver.findElement(By.cssSelector("[data-cy='login-email-input']")).sendKeys("gajalakshme@nfnlabs.in");
+				driver.findElement(By.cssSelector("[data-cy='login-email-input']")).sendKeys("gajabase@mailinator.com");
 				driver.findElement(By.cssSelector("[data-cy='login-password-input']")).sendKeys("Qwerty@123");
 				driver.findElement(By.cssSelector("[data-cy='login-submit-button']")).click();
 				System.out.println("Login Successful");
-				driver.findElement(By.cssSelector(" ")).click();
+				//Click avatar icon
+				driver.findElement(By.cssSelector("[data-cy='sidebar-avatar']")).click();
+				Thread.sleep(2000);
+				//Click logout button
+				driver.findElement(By.cssSelector("[data-cy='logout-button']")).click();
+				System.out.println("Logout Successful");
 
 	}
 

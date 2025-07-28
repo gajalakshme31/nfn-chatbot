@@ -25,17 +25,17 @@ public class Filter_Visitor {
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[3]/a/div[2]")).click();
 		Thread.sleep(2000);
 		//Select months filter
-		driver.findElement(By.xpath("//*[@id=\"menu::rg::trigger\"]")).click();
+		driver.findElement(By.cssSelector("[data-cy='']")).click();
 		Thread.sleep(2000);
-		// Select last 30 days
-		driver.findElement(By.xpath("//*[@id=\"30d\"]")).click();
+		// Select last 7 days
+		driver.findElement(By.cssSelector("[data-cy='visitors-range-filter-item-7d']")).click();
+		Thread.sleep(2000);
 		
-		Thread.sleep(2000);
 		//Select old vs new filter
-		driver.findElement(By.xpath("//*[@id=\"menu::ri::trigger\"]")).click();
+		driver.findElement(By.cssSelector("[data-cy=' ']")).click();
 		Thread.sleep(2000);
 		// Select oldest
-		driver.findElement(By.xpath("//*[@id=\"ASC\"]")).click();
+		driver.findElement(By.cssSelector("[' ']")).click();
 		Thread.sleep(2000);
 		
 

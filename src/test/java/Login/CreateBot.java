@@ -5,7 +5,6 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CreateBot {
@@ -15,33 +14,38 @@ public class CreateBot {
 		WebDriver driver = new ChromeDriver();
 		// Implicit wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		String mail = "r@mailinator.com";
+		String pass = "Qwerty@123";
+		String url = "https://appvance.ai/";
 		// Enter the URL
 		driver.get("https://websitechat-qa.netlify.app/login");
 		driver.manage().window().maximize();
-		driver.findElement(By.cssSelector("[data-cy='login-email-input']")).sendKeys("gajalakshme@nfnlabs.in");
-		driver.findElement(By.cssSelector("[data-cy='login-password-input']")).sendKeys("Qwerty@123");
+		driver.findElement(By.cssSelector("[data-cy='login-email-input']")).sendKeys(mail);
+		driver.findElement(By.cssSelector("[data-cy='login-password-input']")).sendKeys(pass);
 		driver.findElement(By.cssSelector("[data-cy='login-submit-button']")).click();
 		System.out.println("Login Successful");
 		Thread.sleep(8000);
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/main/div/div[1]/div[2]/div")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.cssSelector("[data-cy='website-url-input']")).sendKeys("https://appvance.ai/");
+		driver.findElement(By.cssSelector("[data-cy='website-url-input']")).sendKeys(url);
 		Thread.sleep(2000);
 		//Upload pdf
-		File file = new File("./files/Growyhplan.pdf");
+		File file = new File("./files/Trending_QA_Tools.pdf");
 		String path = file.getAbsolutePath();
-		driver.findElement(By.xpath("(//div[@data-scope='file-upload'])[2]")).sendKeys(path);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@type='file']")).sendKeys(path);
 
 		Thread.sleep(7000);
 		driver.findElement(By.cssSelector("[data-cy='continue-button']")).click();
 		System.out.println("Get started successfull");
 		Thread.sleep(7000);
+		driver.findElement(By.cssSelector("[data-cy='side-select-menu-Website']")).click();
 		// enable toggle in knowledge page
 		driver.findElement(By.cssSelector("[data-cy='group-toggle-switch']")).click();
 		// click continue button
 		driver.findElement(By.cssSelector("[data-cy='website-continue-button']")).click();
 		System.out.println("Knowledge successfull");
-		Thread.sleep(3000);
+		Thread.sleep(7000);
 		// Configure page
 		driver.findElement(By.cssSelector("[data-cy='website-integrate-input']")).sendKeys("https://appvance.ai/");
 		System.out.println("Entered website to be integrated");
@@ -85,29 +89,47 @@ public class CreateBot {
 				Thread.sleep(2000);
 				driver.findElement(By.cssSelector("[data-cy='number-of-fars-input']")).sendKeys("2");
 				System.out.println("Enter how far user can input");
-				/*Thread.sleep(2000);
-				driver.findElement(By.cssSelector("[data-cy='linkedin-url-input']")).sendKeys("https://www.linkedin.com/in/gaja-lakshme-036633125");
-				System.out.println("Socials - Linkedin");
 				Thread.sleep(2000);
-				driver.findElement(By.cssSelector("[data-cy='instagram-url-input']")).sendKeys("https://www.instagram.com/madhu");
-				System.out.println("Socials - Instagram");
-				*/
+				driver.findElement(By.cssSelector("[data-cy='select-trigger']")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.cssSelector("[data-cy='select-item-full_name']")).click();
+				System.out.println("Select name question");
+				Thread.sleep(2000);
+				driver.findElement(By.cssSelector("[data-cy='question-required-checkbox-0']")).click();
+				System.out.println("Click required checkbox");
+				
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector("[data-cy='continue-update-button']")).click();
 		System.out.println("Configure chatbot Successful");
 		
 		//CUSTOMIZE TAB
 				Thread.sleep(2000);
-				driver.findElement(By.cssSelector("[data-cy='theme-option-dark']")).click();
-				System.out.println("Switched to dark theme");
-				Thread.sleep(2000);
-				driver.findElement(By.cssSelector("[data-cy='tab-general']")).clear();
+				
+				/*
+				driver.findElement(By.cssSelector("[data-cy='tab-general']")).click();
 				System.out.println("Switched to general tab");
 				Thread.sleep(2000);
-				driver.findElement(By.cssSelector("[data-cy='font-select']")).sendKeys("2");
+				driver.findElement(By.cssSelector("[data-cy='font-select']")).click();
 				System.out.println("Click font dropdown");
 				Thread.sleep(2000);
-
+				driver.findElement(By.cssSelector("[data-cy='font-select-3']")).click();
+				System.out.println("Choose font");
+				Thread.sleep(2000);
+				driver.findElement(By.cssSelector("[data-cy='font-size-select']")).click();
+				System.out.println("Click font size dropdown");
+				Thread.sleep(2000);
+				driver.findElement(By.cssSelector("[data-cy='font-size-select-3']")).click();
+				System.out.println("Choose font size");
+				Thread.sleep(2000);
+				driver.findElement(By.cssSelector("[data-cy='tab-layout']")).click();
+				System.out.println("Switched to general tab");
+				Thread.sleep(2000);
+				driver.findElement(By.cssSelector("[data-cy='tab-chat']")).click();
+				System.out.println("Click font dropdown");
+				Thread.sleep(2000);
+				*/
+				
+				
 		System.out.println("Apply and create button click");
 		Thread.sleep(3000);
 		driver.findElement(By.cssSelector("[data-cy='save-button']")).click();
