@@ -14,7 +14,7 @@ public class Search {
 		//Launch the browser
 		//ChromeDriver driver = new ChromeDriver();
 		WebDriver driver = new ChromeDriver();
-		String searchh = "gaja";
+		String searchh = "Gaja";
 		//Implicit wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		String mail = "gajabase@mailinator.com";
@@ -35,19 +35,19 @@ public class Search {
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/main/div/div[1]/div[1]/div/input")).sendKeys(searchh);
 		
 		
-		WebElement heading = driver.findElement(By.cssSelector("[data-cy='visitor-row-name-0']"));
-		System.out.print(heading);
-        String resultText = heading.getText();
-
-        if (resultText.contains("gaja")) {
-            System.out.println("Search successful: " + resultText);
+//		WebElement heading = driver.findElement(By.cssSelector("[data-cy='visitor-row-name-0']"));
+//		System.out.print(heading);
+//        String resultText = heading.getText();
+		
+		String text = driver.findElement(By.xpath("(//div[contains(@data-cy,'visitor-row-name')])[1]")).getText();
+		//System.out.println(text);
+        if (text.contains("Gaja")) {
+            System.out.println("Matching search results found");
         } else {
-            System.out.println("Data not found");
+            System.out.println("Matching search results not found");
         }
 		
 		
-		
-
 	}
 
 }

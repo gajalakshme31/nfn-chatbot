@@ -19,7 +19,7 @@ public class Draft_create_view_delete {
 				// Enter the URL
 				driver.get("https://websitechat-qa.netlify.app/login");
 				driver.manage().window().maximize();
-				driver.findElement(By.cssSelector("[data-cy='login-email-input']")).sendKeys("gajalakshme@nfnlabs.in");
+				driver.findElement(By.cssSelector("[data-cy='login-email-input']")).sendKeys("e@mailinator.com");
 				driver.findElement(By.cssSelector("[data-cy='login-password-input']")).sendKeys("Qwerty@123");
 				driver.findElement(By.cssSelector("[data-cy='login-submit-button']")).click();
 				System.out.println("Login Successful");

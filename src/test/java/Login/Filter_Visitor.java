@@ -14,9 +14,9 @@ public class Filter_Visitor {
 		//Implicit wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		//Enter the URL
-		driver.get("https://app.websitechat.in/login");
+		driver.get("https://websitechat-qa.netlify.app/login");
 		driver.manage().window().maximize();
-		driver.findElement(By.name("email")).sendKeys("visitorprod@mailinator.com");
+		driver.findElement(By.name("email")).sendKeys("gajabase@mailinator.com");
 		driver.findElement(By.name("password")).sendKeys("Qwerty@123");
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/form/button[1]")).click();
 		System.out.println("Login Successful");
